@@ -1,6 +1,6 @@
 package ru.otr.ip.app;
 
-import ru.otr.ip.IPAddres;
+import ru.otr.ip.IPAddress;
 import ru.otr.ip.IPValidator;
 
 import java.util.Arrays;
@@ -33,15 +33,15 @@ public class Application {
             }
         }
 
-        IPAddres firsIPAddres = new IPAddres(firstIPTerms);
-        IPAddres secondIPAddres = new IPAddres(secondIPTerms);
-        firsIPAddres.inc();
-        if (firsIPAddres.isGreater(secondIPAddres)) {
+        IPAddress firsIPAddress = new IPAddress(firstIPTerms);
+        IPAddress secondIPAddress = new IPAddress(secondIPTerms);
+        firsIPAddress.inc();
+        if (firsIPAddress.isGreater(secondIPAddress)) {
             logger.info("The range is too small or incorrect.");
         }
-        while (!firsIPAddres.equals(secondIPAddres)) {
-            firsIPAddres.print();
-            firsIPAddres.inc();
+        while (!firsIPAddress.equals(secondIPAddress)) {
+            firsIPAddress.print();
+            firsIPAddress.inc();
         }
         return;
     }
