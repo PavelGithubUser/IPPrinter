@@ -5,7 +5,9 @@ import org.slf4j.LoggerFactory;
 import ru.otr.ip.app.Application;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class IPAddress {
     private static Logger logger = LoggerFactory.getLogger(Application.class);
@@ -46,10 +48,10 @@ public class IPAddress {
     }
 
     public void inc() {
-        final int MAX_IP_ADDRESS = 255;
+        final IPAddress MAX_IP_ADDRESS = new IPAddress(Arrays.asList("255.255.255.255".split(Pattern.quote("."))));
         int partIndex = ipAddrress.size() - 1;
         while (partIndex >= 0) {
-            if (ipAddrress.get(partIndex) < MAX_IP_ADDRESS) {
+            if (ipAddrress.get(partIndex) < 255) {
                 ipAddrress.set(partIndex, ipAddrress.get(partIndex) + 1);
                 return;
             } else {
@@ -57,9 +59,7 @@ public class IPAddress {
                 partIndex--;
             }
         }
-        for (int i = 0; i < ipAddrress.size(); i++) {
-            ipAddrress.set(i, MAX_IP_ADDRESS);
-        }
+        this.ipAddrress = MAX_IP_ADDRESS.getIpAddrress();
         logger.info("The increase is impossible.");
     }
 
