@@ -8,8 +8,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class IPAddresTest {
-    IPAddres firstIPAddres;
-    IPAddres secondIPAddres;
+    private IPAddres firstIPAddres;
+    private IPAddres secondIPAddres;
 
     @Before
     public void init(){

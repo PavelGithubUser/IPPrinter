@@ -8,7 +8,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class IPValidatorTest {
-    IPValidator validator;
+    private IPValidator validator;
 
     @Before
     public void init(){
