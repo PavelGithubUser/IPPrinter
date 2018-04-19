@@ -4,25 +4,26 @@ import ru.otr.ip.IPAddres;
 import ru.otr.ip.IPValidator;
 
 import java.util.Scanner;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.regex.Pattern;
 
 public class Main {
-    private static final Logger log = Logger.getLogger(Main.class.getName());
+    private static Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
         String[] parsFirstIP;
         String[] parsSecondIP;
 
         while (true) {
-            System.out.println("Set first IP.");
+            logger.info("Set first IP.");
             if ((parsFirstIP = validiteAndPars()) != null) {
                 break;
             }
         }
 
         while (true) {
-            System.out.println("Set second IP.");
+            logger.info("Set second IP.");
             if ((parsSecondIP = validiteAndPars()) != null) {
                 break;
             }
@@ -32,7 +33,7 @@ public class Main {
         IPAddres secondIPAddres = new IPAddres(parsSecondIP);
         firsIPAddres.inc();
         if (firsIPAddres.isMore(secondIPAddres)) {
-            System.out.println("The range is too small or incorrect.");
+            logger.info("The range is too small or incorrect.");
         }
         while (!firsIPAddres.compareIP(secondIPAddres)) {
             firsIPAddres.print();
@@ -49,7 +50,7 @@ public class Main {
         String ipAdress = in.nextLine();
         String[] ipTerms = ipAdress.split(Pattern.quote("."));
         if (!validator.validate(ipTerms)) {
-            System.out.println("Incorrect ip.");
+            logger.info("Incorrect ip.");
             return null;
         }
         return ipTerms;
