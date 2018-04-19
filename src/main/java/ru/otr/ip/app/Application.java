@@ -8,8 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.regex.Pattern;
 
-public class Main {
-    private static Logger logger = LoggerFactory.getLogger(Main.class);
+public class Application {
+    private static Logger logger = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
         String[] parsFirstIP;
