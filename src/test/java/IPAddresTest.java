@@ -1,4 +1,4 @@
-import com.IPAddres;
+import ru.otr.ip.IPAddres;
 import org.junit.Before;
 import org.junit.Test;
 

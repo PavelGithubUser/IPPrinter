@@ -1,5 +1,4 @@
-import com.IPAddres;
-import com.IPValidator;
+package ru.otr.ip;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;

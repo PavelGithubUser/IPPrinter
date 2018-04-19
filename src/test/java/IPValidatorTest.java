@@ -1,4 +1,4 @@
-import com.IPValidator;
+import ru.otr.ip.IPValidator;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com;
+package ru.otr.ip;
 
 public class IPValidator {
     private final int amouantcNumbers = 4;

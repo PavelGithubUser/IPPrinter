@@ -1,26 +1,26 @@
-package com;
+package ru.otr.ip;
 
 public class IPAddres {
     private int[] ipAdrres = new int[4];
 
-    public IPAddres(String[] ipAdrress) {
-        for (int i = 0; i < ipAdrress.length; i++) {
-            this.ipAdrres[i] = Integer.parseInt(ipAdrress[i]);
+    public IPAddres(String[] ipAdrres) {
+        for (int i = 0; i < ipAdrres.length; i++) {
+            this.ipAdrres[i] = Integer.parseInt(ipAdrres[i]);
         }
     }
 
-    public boolean compareIP(IPAddres ipAddress) {
+    public boolean compareIP(IPAddres ipAddres) {
         for (int i = 0; i < this.ipAdrres.length; i++) {
-            if (this.ipAdrres[i] != ipAddress.getIpAdrres()[i]) {
+            if (this.ipAdrres[i] != ipAddres.getIpAdrres()[i]) {
                 return false;
             }
         }
         return true;
     }
 
-    public boolean isMore(IPAddres ipAddress) {
+    public boolean isMore(IPAddres ipAddres) {
         for (int i = 0; i < this.ipAdrres.length; i++) {
-            if (this.ipAdrres[i] < ipAddress.getIpAdrres()[i]) {
+            if (this.ipAdrres[i] < ipAddres.getIpAdrres()[i]) {
                 return false;
             }
         }
