@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 public class IPAddress {
     private static Logger logger = LoggerFactory.getLogger(Application.class);
-    private List<Integer> ipAddrress = new ArrayList<Integer>();
+    private List<Integer> ipAddrress = new ArrayList<>();
 
     public IPAddress(List<String> ipAddrressTerms) {
         for (String item : ipAddrressTerms) {
