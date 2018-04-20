@@ -18,21 +18,19 @@ public class Application {
 
     public static void main(String[] args) {
         while (true) {
-            List<String> firstIPTerms;
-            List<String> secondIPTerms;
+            IPAddress firsIPAddress;
+            IPAddress secondIPAddress;
 
             logger.info("Set first IP.");
-            while ((firstIPTerms = getValidInputIP()) == null) {
+            while ((firsIPAddress = getValidInputIP()) == null) {
                 logger.error("you provided invalid IP, please try again");
             }
 
             logger.info("Set second IP.");
-            while ((secondIPTerms = getValidInputIP()) == null) {
+            while ((secondIPAddress = getValidInputIP()) == null) {
                 logger.info("you provided invalid IP, please try again");
             }
 
-            IPAddress firsIPAddress = new IPAddress(firstIPTerms);
-            IPAddress secondIPAddress = new IPAddress(secondIPTerms);
             firsIPAddress.increment();
             if (firsIPAddress.isGreater(secondIPAddress)) {
                 logger.info("The range is too small or incorrect.");
@@ -46,14 +44,14 @@ public class Application {
         }
     }
 
-    public static List<String> getValidInputIP() {
+    public static IPAddress getValidInputIP() {
         Scanner in = new Scanner(System.in);
         String ipAdress = in.nextLine();
         List<String> ipTerms = Arrays.asList(ipAdress.split(Pattern.quote(".")));
         if (!validator.isValid(ipTerms)) {
             return null;
         }
-        return ipTerms;
+        return new IPAddress(ipTerms);
     }
 
 }
