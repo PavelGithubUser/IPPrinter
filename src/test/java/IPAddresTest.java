@@ -19,12 +19,12 @@ public class IPAddresTest {
     }
 
     @Test
-    public void SameShouldBeEqual(){
+    public void sameShouldBeEqual(){
         assertTrue(firstIPAddres.equals(firstIPAddres));
     }
 
     @Test
-    public void DifferentShouldNotBeEqual(){
+    public void differentShouldNotBeEqual(){
         assertFalse(firstIPAddres.equals(secondIPAddres));
     }
 
