@@ -11,7 +11,9 @@ public class IPValidator {
 
     private boolean validateIPTerms(List<String> ipTerms) {
         try {
-            return ipTerms.stream().allMatch(term -> Integer.parseInt(term) >= 0 && Integer.parseInt(term) <= 255);
+            return ipTerms.stream().allMatch(term -> Integer.parseInt(term) >= 0
+                    && Integer.parseInt(term) <= 255
+                    && term.length() < 4);
         } catch (NumberFormatException e) {
             return false;
         }
