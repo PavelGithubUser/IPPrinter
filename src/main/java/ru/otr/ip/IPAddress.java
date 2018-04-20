@@ -13,19 +13,10 @@ public class IPAddress {
     private static Logger logger = LoggerFactory.getLogger(Application.class);
     private List<Integer> ipAddrress = new ArrayList<Integer>();
 
-    public IPAddress(List<String> ipAddrress) {
-        for (String item : ipAddrress) {
+    public IPAddress(List<String> ipAddrressTerms) {
+        for (String item : ipAddrressTerms) {
             this.ipAddrress.add(Integer.parseInt(item));
         }
-    }
-
-    public boolean equals(IPAddress ipAddress) {
-        for (int i = 0; i < this.ipAddrress.size(); i++) {
-            if (!this.ipAddrress.get(i).equals(ipAddress.getIpAddrress().get(i))) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public boolean isGreater(IPAddress ipAddress) {
@@ -61,6 +52,21 @@ public class IPAddress {
         }
         this.ipAddrress = MAX_IP_ADDRESS.getIpAddrress();
         logger.info("The increase is impossible.");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        IPAddress ipAddress = (IPAddress) o;
+
+        return ipAddrress != null ? ipAddrress.equals(ipAddress.ipAddrress) : ipAddress.ipAddrress == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return ipAddrress != null ? ipAddrress.hashCode() : 0;
     }
 
     public List<Integer> getIpAddrress() {

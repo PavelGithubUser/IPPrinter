@@ -14,45 +14,43 @@ import java.util.regex.Pattern;
 
 public class Application {
     private static Logger logger = LoggerFactory.getLogger(Application.class);
+    static IPValidator validator = new IPValidator();
 
     public static void main(String[] args) {
-        List<String> firstIPTerms;
-        List<String> secondIPTerms;
-
         while (true) {
+            List<String> firstIPTerms;
+            List<String> secondIPTerms;
+
             logger.info("Set first IP.");
-            if ((firstIPTerms = validiteAndPars()) != null) {
-                break;
+            while ((firstIPTerms = getValidInputIP()) == null) {
+                logger.error("you provided invalid IP, please try again");
             }
-        }
 
-        while (true) {
             logger.info("Set second IP.");
-            if ((secondIPTerms = validiteAndPars()) != null) {
-                break;
+            while ((secondIPTerms = getValidInputIP()) == null) {
+                logger.info("you provided invalid IP, please try again");
+            }
+
+            IPAddress firsIPAddress = new IPAddress(firstIPTerms);
+            IPAddress secondIPAddress = new IPAddress(secondIPTerms);
+            firsIPAddress.inc();
+            if (firsIPAddress.isGreater(secondIPAddress)) {
+                logger.info("The range is too small or incorrect.");
+            } else {
+                while (!firsIPAddress.equals(secondIPAddress)) {
+                    firsIPAddress.print();
+                    firsIPAddress.inc();
+                }
+                return;
             }
         }
-
-        IPAddress firsIPAddress = new IPAddress(firstIPTerms);
-        IPAddress secondIPAddress = new IPAddress(secondIPTerms);
-        firsIPAddress.inc();
-        if (firsIPAddress.isGreater(secondIPAddress)) {
-            logger.info("The range is too small or incorrect.");
-        }
-        while (!firsIPAddress.equals(secondIPAddress)) {
-            firsIPAddress.print();
-            firsIPAddress.inc();
-        }
-        return;
     }
 
-    public static List<String> validiteAndPars() {
+    public static List<String> getValidInputIP() {
         Scanner in = new Scanner(System.in);
-        IPValidator validator = new IPValidator();
         String ipAdress = in.nextLine();
         List<String> ipTerms = Arrays.asList(ipAdress.split(Pattern.quote(".")));
         if (!validator.validate(ipTerms)) {
-            logger.info("Incorrect ip.");
             return null;
         }
         return ipTerms;
