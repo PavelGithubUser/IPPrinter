@@ -1,3 +1,5 @@
+package ru.otr.ip;
+
 import ru.otr.ip.IPAddress;
 import org.junit.Before;
 import org.junit.Test;

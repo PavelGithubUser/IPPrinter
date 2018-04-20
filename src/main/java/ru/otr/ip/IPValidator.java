@@ -3,10 +3,10 @@ package ru.otr.ip;
 import java.util.List;
 
 public class IPValidator {
-    private final int amouantcNumbers = 4;
+    private final int IP_SECTIONS_COUNT = 4;
 
     public boolean isValid(List<String> parseIP) {
-        return (parseIP.size() == amouantcNumbers && validateIPTerms(parseIP));
+        return (parseIP.size() == IP_SECTIONS_COUNT && validateIPTerms(parseIP));
     }
 
     private boolean validateIPTerms(List<String> ipTerms) {

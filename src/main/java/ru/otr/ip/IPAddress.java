@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 public class IPAddress {
     private static Logger logger = LoggerFactory.getLogger(Application.class);
     private List<Integer> ipAddrress = new ArrayList<>();
-
+    private final IPAddress MAX_IP_ADDRESS = new IPAddress(Arrays.asList("255","255","255","255"));
     public IPAddress(List<String> ipAddrressTerms) {
         for (String item : ipAddrressTerms) {
             this.ipAddrress.add(Integer.parseInt(item));
@@ -39,7 +39,6 @@ public class IPAddress {
     }
 
     public void increment() {
-        final IPAddress MAX_IP_ADDRESS = new IPAddress(Arrays.asList("255.255.255.255".split(Pattern.quote("."))));
         int partIndex = ipAddrress.size() - 1;
         while (partIndex >= 0) {
             if (ipAddrress.get(partIndex) < 255) {

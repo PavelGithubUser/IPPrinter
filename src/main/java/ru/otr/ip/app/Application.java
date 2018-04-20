@@ -17,7 +17,9 @@ public class Application {
     static IPValidator validator = new IPValidator();
 
     public static void main(String[] args) {
-        while (true) {
+        boolean isIPCombinationValid = false;
+
+        while(!isIPCombinationValid ){
             IPAddress firsIPAddress;
             IPAddress secondIPAddress;
 
@@ -39,7 +41,7 @@ public class Application {
                     firsIPAddress.print();
                     firsIPAddress.increment();
                 }
-                return;
+                isIPCombinationValid = true;
             }
         }
     }
