@@ -43,4 +43,9 @@ public class IPValidatorTest {
         assertFalse(validator.isValid(Arrays.asList("-15","123","0","24")));
     }
 
+    @Test
+    public void fourDigitsIpShouldNotBeValid(){
+        assertFalse(validator.isValid(Arrays.asList("-15","123","0000","24")));
+    }
+
 }
