@@ -14,8 +14,8 @@ public class IPAddresTest {
 
     @Before
     public void init(){
-        firstIPAddres = new IPAddress(Arrays.asList("192.168.5.195".split(Pattern.quote("."))));
-        secondIPAddres = new IPAddress(Arrays.asList("192.168.5.196".split(Pattern.quote("."))));
+        firstIPAddres = new IPAddress(Arrays.asList("192","168","5","195"));
+        secondIPAddres = new IPAddress(Arrays.asList("192","168","5","196"));
     }
 
     @Test
