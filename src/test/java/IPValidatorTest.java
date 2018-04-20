@@ -18,27 +18,27 @@ public class IPValidatorTest {
 
     @Test
     public void shouldBeValid(){
-        assertTrue(validator.validate(Arrays.asList("15.123.0.24".split(Pattern.quote(".")))));
+        assertTrue(validator.isValid(Arrays.asList("15.123.0.24".split(Pattern.quote(".")))));
     }
 
     @Test
     public void notFullIPShouldNotBeValid(){
-        assertFalse(validator.validate(Arrays.asList("15.0.24".split(Pattern.quote(".")))));
+        assertFalse(validator.isValid(Arrays.asList("15.0.24".split(Pattern.quote(".")))));
     }
 
     @Test
     public void tooBigIpShouldNotBeValid(){
-        assertFalse(validator.validate(Arrays.asList("1500.123.0.24".split(Pattern.quote(".")))));
+        assertFalse(validator.isValid(Arrays.asList("1500.123.0.24".split(Pattern.quote(".")))));
     }
 
     @Test
     public void shouldNotBeValidWithLetter(){
-        assertFalse(validator.validate(Arrays.asList("15i.123.0.24".split(Pattern.quote(".")))));
+        assertFalse(validator.isValid(Arrays.asList("15i.123.0.24".split(Pattern.quote(".")))));
     }
 
     @Test
     public void negativeIpShouldNotBeValid(){
-        assertFalse(validator.validate(Arrays.asList("-15.123.0.24".split(Pattern.quote(".")))));
+        assertFalse(validator.isValid(Arrays.asList("-15.123.0.24".split(Pattern.quote(".")))));
     }
 
 }

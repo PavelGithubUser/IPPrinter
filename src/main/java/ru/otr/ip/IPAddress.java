@@ -38,7 +38,7 @@ public class IPAddress {
         System.out.println();
     }
 
-    public void inc() {
+    public void increment() {
         final IPAddress MAX_IP_ADDRESS = new IPAddress(Arrays.asList("255.255.255.255".split(Pattern.quote("."))));
         int partIndex = ipAddrress.size() - 1;
         while (partIndex >= 0) {

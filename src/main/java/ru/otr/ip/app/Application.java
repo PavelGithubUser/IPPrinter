@@ -33,13 +33,13 @@ public class Application {
 
             IPAddress firsIPAddress = new IPAddress(firstIPTerms);
             IPAddress secondIPAddress = new IPAddress(secondIPTerms);
-            firsIPAddress.inc();
+            firsIPAddress.increment();
             if (firsIPAddress.isGreater(secondIPAddress)) {
                 logger.info("The range is too small or incorrect.");
             } else {
                 while (!firsIPAddress.equals(secondIPAddress)) {
                     firsIPAddress.print();
-                    firsIPAddress.inc();
+                    firsIPAddress.increment();
                 }
                 return;
             }
@@ -50,7 +50,7 @@ public class Application {
         Scanner in = new Scanner(System.in);
         String ipAdress = in.nextLine();
         List<String> ipTerms = Arrays.asList(ipAdress.split(Pattern.quote(".")));
-        if (!validator.validate(ipTerms)) {
+        if (!validator.isValid(ipTerms)) {
             return null;
         }
         return ipTerms;

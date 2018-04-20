@@ -40,7 +40,7 @@ public class IPAddresTest {
 
     @Test
     public void shouldBeIncremented(){
-        firstIPAddres.inc();
+        firstIPAddres.increment();
         assertTrue(firstIPAddres.equals(secondIPAddres));
     }
 }
